@@ -1,5 +1,5 @@
 # ---- Flight-price / gender / recommendation API ----
-FROM python:3.11-slim AS base
+FROM python:3.12-slim AS base
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PYTHONPATH=/app/src \
     VOYAGE_MODEL_DIR=/app/models
 WORKDIR /app
