@@ -15,7 +15,8 @@ COPY src/ src/
 COPY api/ api/
 COPY models/ models/
 
-RUN useradd -r -u 1001 appuser && chown -R appuser /app
+RUN useradd -r -u 1001 -m -d /home/appuser appuser \
+    && chown -R appuser:appuser /app /home/appuser
 USER appuser
 
 EXPOSE 5000

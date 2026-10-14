@@ -20,3 +20,4 @@ matplotlib>=3.8
 seaborn>=0.13
 # Tests
 pytest>=8.0
+mlflow>=3.0

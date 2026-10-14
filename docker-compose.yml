@@ -17,11 +17,27 @@ services:
     depends_on: [api]
     restart: unless-stopped
 
+ 
   mlflow:
     image: ghcr.io/mlflow/mlflow:latest
-    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlartifacts
-    ports: ["5001:5000"]
-    volumes: ["mlflow-data:/mlartifacts"]
+    command:
+      - mlflow
+      - server
+      - --host
+      - 0.0.0.0
+      - --port
+      - "5000"
+      - --backend-store-uri
+      - sqlite:////mlflow/mlflow.db
+      - --default-artifact-root
+      - file:///mlruns
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./mlflow-docker.db:/mlflow/mlflow.db
+      - ./mlruns:/mlruns
+    restart: unless-stopped
+
 
 volumes:
   mlflow-data:

@@ -7,3 +7,14 @@ mlartifacts/
 .ipynb_checkpoints/
 .pytest_cache/
 models/metrics_*.json
+# Local MLflow databases and backups
+mlflow-docker.db
+mlflow_backup_before_docker.db
+models_backup/
+
+# Local Python environment and secrets
+.env
+.env.*
+!.env.example
+
+# Generated model artifacts (keep tracked models tracked)
